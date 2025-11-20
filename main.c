@@ -15,18 +15,15 @@
 #include "arrayUtils.h"
 #include "verificaKNN.c"
 
-#define PRINT_DATA 0    // Imprime parametros e conjuntos recebidos por cada rank 
+#define PRINT_DATA 0   // Imprime parametros e conjuntos recebidos por cada rank 
 #define PRINT_RESULT 0  // Imprime resultados de cada rank, e o vetor R após o gather
 #define PRINT_TIMES 0   // Imprime tempos de execução das funçoes
-
-int numThreads = 0; // Número de threads
-int numPoints_thread = 0; // Número de pontos de cada thread
 
 int main(int argc, char** argv) {
 
     int nProc, procID;
     int root = 0;
-    int params[4]; // Parametros da main
+    int params[5]; // Parametros da main
     int param_v = 0;
     
     MPI_Init(&argc, &argv);
@@ -36,7 +33,8 @@ int main(int argc, char** argv) {
     // Verifica se os parametros estao todos corretos
     if (procID == root) {
 
-        if (argc < 5) {
+        if (argc < 6) {
+            printf("[error main] argc = %d\n", argc);
             printf("Uso correto: mpirun -np 4 ./main -q=n1 -p=n2 -d=n3 -k=n4 -t=n5\n");
             MPI_Abort(MPI_COMM_WORLD, 1);
         }
@@ -59,16 +57,13 @@ int main(int argc, char** argv) {
                 else if (!strcmp(parameterName, "-k"))
                     params[3] = value;
                 else if (!strcmp(parameterName, "-t"))
-                    numThreads = value;
+                    params[4] = value;
             } else {
                 if (!strcmp(argv[i], "-v"))
                     param_v = 1;
-            }
-
-            
+            }            
         }
-
-        if (!params[0] || !params[1] || !params[2] || !params[3] || !numThreads) {
+        if (!params[0] || !params[1] || !params[2] || !params[3] || !params[4]) {
             printf("Uso correto: mpirun -np 4 ./main -q=n1 -p=n2 -d=n3 -k=n4 -t=n5\n");
             MPI_Abort(MPI_COMM_WORLD, 1);
         }
@@ -77,7 +72,7 @@ int main(int argc, char** argv) {
     }
 
     // Envia os parametros para todos os ranks por broadcast
-    MPI_Bcast(params, 4, MPI_INT, root, MPI_COMM_WORLD);
+    MPI_Bcast(params, 5, MPI_INT, root, MPI_COMM_WORLD);
 
     int* sendBuf_counts = NULL; // Quantidade de pontos que cada rank vai receber (somente no root)
     int* rankSizes_Q = NULL; // Quantidade de elementos que cada rank vai receber do conjunto Q (somente no root)
@@ -226,17 +221,17 @@ int main(int argc, char** argv) {
 
     #if PRINT_DATA 
         // imprime dados recebidos
-        printf("Processo %d recebeu: parametros: nq= %d , npp= %d , d= %d , k= %d \n\n", procID, params[0], params[1], params[2], params[3]);
+        printf("Processo %d recebeu parametros:\n\tnq = %d,\n\tnpp = %d,\n\td = %d,\n\tk = %d,\n\tnThreads = %d\n\n", procID, params[0], params[1], params[2], params[3], params[4]);
 
-        printf("Processo %d recebeu: Q: \n", procID);
-        for (int i = 0; i < numPoints; i++) {
+        printf("Processo %d recebeu Q: \n", procID);
+        for (int i = 0; i < numPoints_rank; i++) {
             for (int j = 0; j < params[2]; j++) 
                 printf("%.2f ", recvBufScatter_Q[i * params[2] + j]);
             printf("\n");
         }
         printf("\n");
 
-        printf("Processo %d recebeu: P: \n", procID);
+        printf("Processo %d recebeu P: \n", procID);
         for (int i = 0; i < params[1]; i++) {
             for (int j = 0; j < params[2]; j++) 
                 printf("%.2f ", sendBuf_P[i * params[2] + j]);
@@ -251,7 +246,7 @@ int main(int argc, char** argv) {
     // Mede o tempo do knn
     double knnT0 = MPI_Wtime();
     
-    result = knn(recvBufScatter_Q, numPoints_rank, sendBuf_P, params[1], params[2], params[3]);
+    result = knnThreads(recvBufScatter_Q, numPoints_rank, sendBuf_P, params[1], params[2], params[3], params[4]);
     
     knnT0 = MPI_Wtime() - knnT0;
     #if PRINT_TIMES 
