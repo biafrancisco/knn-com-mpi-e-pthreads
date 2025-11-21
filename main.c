@@ -17,7 +17,7 @@
 
 #define PRINT_DATA 0   // Imprime parametros e conjuntos recebidos por cada rank 
 #define PRINT_RESULT 0  // Imprime resultados de cada rank, e o vetor R após o gather
-#define PRINT_TIMES 0   // Imprime tempos de execução das funçoes
+#define PRINT_TIMES 1   // Imprime tempos de execução das funçoes
 
 int main(int argc, char** argv) {
 
