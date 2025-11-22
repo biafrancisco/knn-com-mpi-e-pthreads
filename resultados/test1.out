@@ -1,0 +1,70 @@
+-------- EXECUCAO 1 --------
+Rank 0 -> tempo de transmissão do conjunto P via MPI_Bcast = 5.092686
+Rank 0 -> tempo de transmissão do conjunto Q via MPI_Scatter: 0.001361 s
+Rank 1 -> totalTimeInSeconds: 13.166262 s
+Rank 0 -> totalTimeInSeconds: 13.258595 s
+Rank 1 -> tempo de transmissão de result via MPI_Gather: 0.093329 s
+Rank 0 -> tempo de transmissão de result via MPI_Gather: 0.003032 s
+-------- EXECUCAO 2 --------
+Rank 0 -> tempo de transmissão do conjunto P via MPI_Bcast = 5.126458
+Rank 0 -> tempo de transmissão do conjunto Q via MPI_Scatter: 0.001378 s
+Rank 1 -> totalTimeInSeconds: 13.176238 s
+Rank 0 -> totalTimeInSeconds: 13.208681 s
+Rank 1 -> tempo de transmissão de result via MPI_Gather: 0.033540 s
+Rank 0 -> tempo de transmissão de result via MPI_Gather: 0.003124 s
+-------- EXECUCAO 3 --------
+Rank 0 -> tempo de transmissão do conjunto P via MPI_Bcast = 5.098816
+Rank 0 -> tempo de transmissão do conjunto Q via MPI_Scatter: 0.001367 s
+Rank 1 -> totalTimeInSeconds: 13.170131 s
+Rank 0 -> totalTimeInSeconds: 13.254028 s
+Rank 1 -> tempo de transmissão de result via MPI_Gather: 0.085056 s
+Rank 0 -> tempo de transmissão de result via MPI_Gather: 0.003113 s
+-------- EXECUCAO 4 --------
+Rank 0 -> tempo de transmissão do conjunto P via MPI_Bcast = 5.131515
+Rank 0 -> tempo de transmissão do conjunto Q via MPI_Scatter: 0.001376 s
+Rank 1 -> totalTimeInSeconds: 13.186448 s
+Rank 0 -> totalTimeInSeconds: 13.218184 s
+Rank 1 -> tempo de transmissão de result via MPI_Gather: 0.032944 s
+Rank 0 -> tempo de transmissão de result via MPI_Gather: 0.003050 s
+-------- EXECUCAO 5 --------
+Rank 0 -> tempo de transmissão do conjunto P via MPI_Bcast = 5.095775
+Rank 0 -> tempo de transmissão do conjunto Q via MPI_Scatter: 0.001344 s
+Rank 1 -> totalTimeInSeconds: 13.171337 s
+Rank 0 -> totalTimeInSeconds: 13.225447 s
+Rank 1 -> tempo de transmissão de result via MPI_Gather: 0.055233 s
+Rank 0 -> tempo de transmissão de result via MPI_Gather: 0.003035 s
+-------- EXECUCAO 6 --------
+Rank 0 -> tempo de transmissão do conjunto P via MPI_Bcast = 5.122748
+Rank 0 -> tempo de transmissão do conjunto Q via MPI_Scatter: 0.001356 s
+Rank 1 -> totalTimeInSeconds: 13.193090 s
+Rank 0 -> totalTimeInSeconds: 13.258853 s
+Rank 1 -> tempo de transmissão de result via MPI_Gather: 0.066935 s
+Rank 0 -> tempo de transmissão de result via MPI_Gather: 0.003045 s
+-------- EXECUCAO 7 --------
+Rank 0 -> tempo de transmissão do conjunto P via MPI_Bcast = 5.127088
+Rank 0 -> tempo de transmissão do conjunto Q via MPI_Scatter: 0.001327 s
+Rank 1 -> totalTimeInSeconds: 13.162202 s
+Rank 0 -> totalTimeInSeconds: 13.217326 s
+Rank 1 -> tempo de transmissão de result via MPI_Gather: 0.056038 s
+Rank 0 -> tempo de transmissão de result via MPI_Gather: 0.003019 s
+-------- EXECUCAO 8 --------
+Rank 0 -> tempo de transmissão do conjunto P via MPI_Bcast = 5.116981
+Rank 0 -> tempo de transmissão do conjunto Q via MPI_Scatter: 0.001372 s
+Rank 1 -> totalTimeInSeconds: 13.173450 s
+Rank 0 -> totalTimeInSeconds: 13.245797 s
+Rank 1 -> tempo de transmissão de result via MPI_Gather: 0.073315 s
+Rank 0 -> tempo de transmissão de result via MPI_Gather: 0.003040 s
+-------- EXECUCAO 9 --------
+Rank 0 -> tempo de transmissão do conjunto P via MPI_Bcast = 5.128022
+Rank 0 -> tempo de transmissão do conjunto Q via MPI_Scatter: 0.001346 s
+Rank 1 -> totalTimeInSeconds: 13.158803 s
+Rank 0 -> totalTimeInSeconds: 13.227396 s
+Rank 1 -> tempo de transmissão de result via MPI_Gather: 0.069761 s
+Rank 0 -> tempo de transmissão de result via MPI_Gather: 0.003092 s
+-------- EXECUCAO 10 --------
+Rank 0 -> tempo de transmissão do conjunto P via MPI_Bcast = 5.096648
+Rank 0 -> tempo de transmissão do conjunto Q via MPI_Scatter: 0.001346 s
+Rank 1 -> totalTimeInSeconds: 13.170473 s
+Rank 0 -> totalTimeInSeconds: 13.211748 s
+Rank 0 -> tempo de transmissão de result via MPI_Gather: 0.003032 s
+Rank 1 -> tempo de transmissão de result via MPI_Gather: 0.042381 s
